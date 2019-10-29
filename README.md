@@ -1,4 +1,4 @@
-# testing_game_linux
+# Hardest Touhou Final Boss
 
 Junko's 3rd non-spell written in C++
 
