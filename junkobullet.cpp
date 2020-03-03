@@ -1,5 +1,5 @@
 #include <junko.h>
-#include <enemyBullet.h>
+#include <enemybullet.h>
 junko::junkoBullet::junkoBullet(double x, double y, double deltax, double deltay) {
   ycoord = y;
   xcoord = x;

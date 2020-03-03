@@ -1,13 +1,11 @@
 CC = g++
-OBJ = main.o attacks.o non1loop.o non1logic.o bullet.o enemybullet.o star.o texturemanager.o junko.o healthbar.o bomb.o reimu.o reimubomb.o reimubullet.o collisionDetection.o junkoBullet.o 
+OBJ = main.o attacks.o non1loop.o non1logic.o bullet.o enemybullet.o star.o texturemanager.o junko.o healthbar.o bomb.o reimu.o reimubomb.o reimubullet.o collisionDetection.o junkobullet.o 
 INCLUDE = -Iinclude
 LINKERS = -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf 
-OFLAGS = -std=c++98 -Wall -Wshadow --pedantic -Wvla -Werror  -c -g #2> gccmessages
-CFLAGS =-std=c++98 -Wall -Wshadow --pedantic  -Wvla -Werror  -g -o #2> gccmessages
 OUTPUT = Game
 VAL = valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes #--log-file=memcheck.txt
-OFLAGS = -std=c++98 -Wall -Wshadow --pedantic -Wvla -Werror  -c -g 2> gccmessages
-CFLAGS =-std=c++98 -Wall -Wshadow --pedantic  -Wvla -Werror  -g -o 2> gccmessages
+OFLAGS = -std=c++98 -Wall -Wshadow --pedantic -Wvla -Werror  -c -O3 2> gccmessages
+CFLAGS =-std=c++98 -Wall -Wshadow --pedantic  -Wvla -Werror  -O3 -o 2> gccmessages
 OUTPUT = Game
 VAL = valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --log-file=memcheck.txt
 run: game
@@ -48,7 +46,7 @@ reimubullet.o: reimubullet.cpp include/reimu.h include/reimu.h include/bullet.h
 	$(CC) reimubullet.cpp $(INCLUDE) $(LIB) $(LINKERS) $(OFLAGS) 
 collisionDetection.o: collisionDetection.cpp include/reimu.h include/collisionDetection.h include/junko.h
 	$(CC) collisionDetection.cpp $(INCLUDE) $(LIB) $(LINKERS) $(OFLAGS) 
-junkoBullet.o: junkoBullet.cpp include/bullet.h include/enemyBullet.h include/junko.h
-	$(CC) junkoBullet.cpp $(INCLUDE) $(LIB) $(LINKERS) $(OFLAGS) 
+junkobullet.o: junkobullet.cpp include/bullet.h include/enemybullet.h include/junko.h
+	$(CC) junkobullet.cpp $(INCLUDE) $(LIB) $(LINKERS) $(OFLAGS) 
 clean:
 	rm -f $(OUTPUT) $(OBJ) *~
